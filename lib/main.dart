@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'helper/name_generator.dart';
 import 'helper/word_generator.dart';
+import 'custom/custom_pagination.dart';
 
 void main() => runApp(NamainApp());
 
@@ -35,20 +36,6 @@ class NameGeneratorState extends State<NameGenerator> {
     super.dispose();
   }
 
-  Widget buildCarousel() {
-    return new Swiper(
-      itemBuilder: (BuildContext context, int index) {
-        return new Image.network(
-          "http://via.placeholder.com/350x150",
-          fit: BoxFit.fill,
-        );
-      },
-      itemCount: 3,
-      pagination: new SwiperPagination(),
-      control: new SwiperControl(),
-    );
-  }
-
   Widget buildSwiper({List<Widget> children}) {
     return new Swiper(
       itemBuilder: (BuildContext context, int index) {
@@ -59,7 +46,7 @@ class NameGeneratorState extends State<NameGenerator> {
       },
       loop: false,
       itemCount: children.length,
-      pagination: new SwiperPagination(builder: RectSwiperPaginationBuilder(color: Colors.red, ),
+      pagination: new SwiperPagination(builder: RectangleSwiperPaginationBuilder()),
     );
   }
   Widget buildStartupName() {
@@ -96,7 +83,8 @@ class NameGeneratorState extends State<NameGenerator> {
             textColor: Colors.white,
             onPressed: () {
               setState(() {
-                this.startupName = generateName(nameController.text);
+                if (nameController.text.isNotEmpty)
+                  this.startupName = generateName(nameController.text);
               });
               print(this.startupName);
             }),
@@ -138,15 +126,15 @@ class NameGeneratorState extends State<NameGenerator> {
       crossAxisSpacing: 10,
       mainAxisSpacing: 10,
       children: <Widget>[
-        buildCategoryTile('Food', Icons.fastfood, Colors.red[600]),
-        buildCategoryTile('eCommerce', Icons.shopping_cart, Colors.red[500]),
-        buildCategoryTile('Agriculture', Icons.local_florist, Colors.red[400]),
+        buildCategoryTile('Food', Icons.fastfood, Colors.red[700]),
+        buildCategoryTile('eCommerce', Icons.shopping_cart, Colors.red[600]),
+        buildCategoryTile('Agriculture', Icons.local_florist, Colors.red[500]),
         buildCategoryTile('Finance', Icons.attach_money, Colors.green[600]),
         buildCategoryTile('Media', Icons.live_tv, Colors.green[500]),
         buildCategoryTile('Social', Icons.people, Colors.green[400]),
-        buildCategoryTile('Health', Icons.local_hospital, Colors.blue[600]),
-        buildCategoryTile('Education', Icons.school, Colors.blue[500]),
-        buildCategoryTile('Travel', Icons.directions_car, Colors.blue[400]),
+        buildCategoryTile('Health', Icons.local_hospital, Colors.blue[500]),
+        buildCategoryTile('Education', Icons.school, Colors.blue[400]),
+        buildCategoryTile('Travel', Icons.directions_car, Colors.blue[300]),
       ],
     );
   }
@@ -155,6 +143,7 @@ class NameGeneratorState extends State<NameGenerator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         title: Text('Nama.in - Startup Name Generator'),
         centerTitle: true,
       ),
