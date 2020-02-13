@@ -1,4 +1,4 @@
-import 'package:nama_in/random.dart';
+import 'random.dart';
 
 Map<String, List<String>> categoryMap = {
   'food' : [

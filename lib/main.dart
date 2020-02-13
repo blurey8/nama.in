@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'name_generator.dart';
-import 'word_generator.dart';
+import 'helper/name_generator.dart';
+import 'helper/word_generator.dart';
 
 void main() => runApp(NamainApp());
 
@@ -59,7 +59,7 @@ class NameGeneratorState extends State<NameGenerator> {
       },
       loop: false,
       itemCount: children.length,
-      pagination: new SwiperPagination(),
+      pagination: new SwiperPagination(builder: RectSwiperPaginationBuilder(color: Colors.red, ),
     );
   }
   Widget buildStartupName() {
@@ -138,15 +138,15 @@ class NameGeneratorState extends State<NameGenerator> {
       crossAxisSpacing: 10,
       mainAxisSpacing: 10,
       children: <Widget>[
-        buildCategoryTile('Food', Icons.fastfood, Colors.red),
-        buildCategoryTile('eCommerce', Icons.shopping_cart, Colors.red),
-        buildCategoryTile('Agriculture', Icons.local_florist, Colors.red),
-        buildCategoryTile('Finance', Icons.attach_money, Colors.green),
-        buildCategoryTile('Media', Icons.live_tv, Colors.green),
-        buildCategoryTile('Social', Icons.people, Colors.green),
-        buildCategoryTile('Health', Icons.local_hospital, Colors.blue),
-        buildCategoryTile('Education', Icons.school, Colors.blue),
-        buildCategoryTile('Travel', Icons.directions_car, Colors.blue),
+        buildCategoryTile('Food', Icons.fastfood, Colors.red[600]),
+        buildCategoryTile('eCommerce', Icons.shopping_cart, Colors.red[500]),
+        buildCategoryTile('Agriculture', Icons.local_florist, Colors.red[400]),
+        buildCategoryTile('Finance', Icons.attach_money, Colors.green[600]),
+        buildCategoryTile('Media', Icons.live_tv, Colors.green[500]),
+        buildCategoryTile('Social', Icons.people, Colors.green[400]),
+        buildCategoryTile('Health', Icons.local_hospital, Colors.blue[600]),
+        buildCategoryTile('Education', Icons.school, Colors.blue[500]),
+        buildCategoryTile('Travel', Icons.directions_car, Colors.blue[400]),
       ],
     );
   }
