@@ -54,7 +54,7 @@ List<List<String>> mispells = [
   ['w', 'ww'],
   ['x', 'xx'],
   ['y', 'yy'],
-  ['z', 'xx'],
+  ['z', 'zz'],
 
   /* Deletion */
   ['a', ''],

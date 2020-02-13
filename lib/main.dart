@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
-// import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'try_swiper.dart';
 import 'name_generator.dart';
 import 'word_generator.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(NamainApp());
 
-class MyApp extends StatelessWidget {
+class NamainApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'nama.in',
       theme: ThemeData(
-        primarySwatch: Colors.green,
-        scaffoldBackgroundColor: Colors.green[50],
+        primarySwatch: Colors.teal,
+        scaffoldBackgroundColor: Colors.teal[50],
       ),
       home: NameGenerator(),
-      // home: SwiperPage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -55,15 +52,30 @@ class NameGeneratorState extends State<NameGenerator> {
   Widget buildSwiper({List<Widget> children}) {
     return new Swiper(
       itemBuilder: (BuildContext context, int index) {
-        return Container(
-          // color: Colors.yellow,
+        return Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.0),
           child: children[index],
-          // child: Center(child: Text(index.toString())),
         );
       },
       loop: false,
       itemCount: children.length,
       pagination: new SwiperPagination(),
+    );
+  }
+  Widget buildStartupName() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Container(
+        alignment: Alignment.center,
+        child: Text(
+          this.startupName,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 40.0,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ),
     );
   }
 
@@ -75,13 +87,12 @@ class NameGeneratorState extends State<NameGenerator> {
           textAlign: TextAlign.center,
           decoration: InputDecoration(
             hintText: 'Enter any words',
-            // focusColor: Colors.yellow,
           ),
         ),
         SizedBox(height: 10.0),
         RaisedButton(
             child: Text('Generate'),
-            color: Colors.green,
+            color: Theme.of(context).primaryColor,
             textColor: Colors.white,
             onPressed: () {
               setState(() {
@@ -93,46 +104,49 @@ class NameGeneratorState extends State<NameGenerator> {
     );
   }
 
-  Widget buildCategoryTile(String categoryName, Color color) {
+  Widget buildCategoryTile(String categoryName, IconData icon, Color color) {
     return RaisedButton(
       color: color,
       textColor: Colors.white,
+      padding: EdgeInsets.symmetric(horizontal: 8.0),
       onPressed: () {
         setState(() {
-          this.startupName = generateName(
-            getWordByCategory(categoryName)
-          );
+          this.startupName = generateName(getWordByCategory(categoryName));
         });
         print(this.startupName);
         print(categoryName + ' pressed!');
       },
-      child: Text(
-        categoryName,
-        textAlign: TextAlign.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Icon(icon),
+          Text(
+            categoryName,
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
     );
   }
 
-  // Health, Finance, Education
-  // Food, Transportation, eCommerce
-  // Media, Social, Agriculture
   Widget buildCategoryTiles() {
     return GridView.count(
       crossAxisCount: 3,
+      childAspectRatio: 5/4,
+      
       primary: false,
-      // padding: const EdgeInsets.all(20),
       crossAxisSpacing: 10,
       mainAxisSpacing: 10,
       children: <Widget>[
-        buildCategoryTile('Food', Colors.red[600]),
-        buildCategoryTile('eCommerce', Colors.red[500]),
-        buildCategoryTile('Agriculture', Colors.red[400]),
-        buildCategoryTile('Finance', Colors.green[600]),
-        buildCategoryTile('Media', Colors.green[500]),
-        buildCategoryTile('Social', Colors.green[400]),
-        buildCategoryTile('Health', Colors.blue[600]),
-        buildCategoryTile('Education', Colors.blue[500]),
-        buildCategoryTile('Transportation', Colors.blue[400]),
+        buildCategoryTile('Food', Icons.fastfood, Colors.red),
+        buildCategoryTile('eCommerce', Icons.shopping_cart, Colors.red),
+        buildCategoryTile('Agriculture', Icons.local_florist, Colors.red),
+        buildCategoryTile('Finance', Icons.attach_money, Colors.green),
+        buildCategoryTile('Media', Icons.live_tv, Colors.green),
+        buildCategoryTile('Social', Icons.people, Colors.green),
+        buildCategoryTile('Health', Icons.local_hospital, Colors.blue),
+        buildCategoryTile('Education', Icons.school, Colors.blue),
+        buildCategoryTile('Travel', Icons.directions_car, Colors.blue),
       ],
     );
   }
@@ -141,35 +155,21 @@ class NameGeneratorState extends State<NameGenerator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Startup Name Generator'),
+        title: Text('Nama.in - Startup Name Generator'),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: Container(
-                alignment: Alignment.center,
-                child: Text(
-                  this.startupName,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    // backgroundColor: Colors.yellow,
-                    fontSize: 40.0,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
-              // child: buildTextForm(),
-              // child: buildCategoryTiles(),
-              child: buildSwiper(
-                  children: <Widget>[buildTextForm(), buildCategoryTiles()]),
-            ),
-          ],
-        ),
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            // flex: 4,
+            child: buildStartupName()
+          ),
+          Expanded(
+            // flex: 5,
+            child: buildSwiper(
+                children: <Widget>[buildTextForm(), buildCategoryTiles()]),
+          ),
+        ],
       ),
     );
   }

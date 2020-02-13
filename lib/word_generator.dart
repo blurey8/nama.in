@@ -67,14 +67,14 @@ Map<String, List<String>> categoryMap = {
     // noun
     'berita', 'komedi', 'hiburan', 'film', 'sinema', 'musik', 'lagu', 'podcast', 'video', 'acara', 'layar',
     'koran', 'kabar', 'tv', 'tayangan', 'channel',
-    'kreasi', 'inovasi', 'karya'
+    'kreasi', 'inovasi', 'karya',
 
     // verb
     'baca', 'dengar', 'simak', 'pantau', 'tulis', 'cuit', 'bicara', 'ngobrol', 'tonton', 'tayang', 'mengudara', 'percaya', 'ketawa', 'ngakak', 'bahagia', 'pikir', 'nalar', 'logika',
     // adjective
     'terkini', 'hangat', 'viral', 'kreatif', 'inovatif', 'tren', 'lucu', 'bacot', 'bawel',
     // subject
-    'artis', 'selebritis', 'aktor', 'aktris', 'musisi', 'kreator', 'produser', 'sineas', 'penonton'
+    'artis', 'selebritis', 'aktor', 'aktris', 'musisi', 'kreator', 'produser', 'sineas', 'penonton',
   ],
 
   'social' : [
@@ -83,7 +83,7 @@ Map<String, List<String>> categoryMap = {
     // verb
     'bantu', 'tolong', 'bagi', 'sumbang', 'gotongroyong', 'derma', 'sedekah',
     // adjective
-    'baik', 'dermawan', 'bisa'
+    'baik', 'dermawan', 'bisa',
     // subject
     'donatur', 'donor',
   ],
@@ -103,18 +103,18 @@ Map<String, List<String>> categoryMap = {
 
   'education' : [
     // place
-    'kelas', 'sekolah', 'kursus', 'les', 'akademi'
+    'kelas', 'sekolah', 'kursus', 'les', 'akademi',
     // noun
     'buku', 'pensil', 'pelatihan', 'skill',
     // verb
     'belajar', 'mengajar', 'ajar', 'bimbing',
     // adjective
-    'privat', 'pintar', 'cerdas', 'jenius', 'jago', 'ahli', 'mampu'
+    'privat', 'pintar', 'cerdas', 'jenius', 'jago', 'ahli', 'mampu',
     // subject
     'guru', 'pengajar', 'dosen', 'ustadz', 'pelajar', 'murid', 'siswa', 'mahasiswa', 'santri',
   ],
 
-  'transportation' : [
+  'travel' : [
     // place
     'jalan', 'aspal',
     // noun
@@ -125,7 +125,9 @@ Map<String, List<String>> categoryMap = {
     // adjective
     'sampai', 'cepat', 'kilat',
     // subject
-    'kendara',
+    'kendara', 
+    
+    'turis', 'cucimata', 'wisata', 'destinasi', 'tiket', 'loket',
   ],
 };
 
