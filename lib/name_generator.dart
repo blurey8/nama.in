@@ -1,13 +1,4 @@
-import 'dart:math';
-
-final _random = new Random();
-Object _randomChoice(List<Object> list) {
-  return list[_random.nextInt(list.length)];
-}
-
-String _randomString(List<String> list) {
-  return _randomChoice(list).toString();
-}
+import 'random.dart';
 
 List<String> prefixes = [
   'Go',
@@ -17,6 +8,10 @@ List<String> prefixes = [
   'Oke',
   'Siap',
   'Halo',
+  'Beli',
+  'nge',
+  'Ruang',
+  'Si',
 ];
 
 List<String> postfixes = [
@@ -24,6 +19,7 @@ List<String> postfixes = [
   '.id',
   '.com',
   '.io',
+  'an',
   'pedia',
   'loka',
   'online',
@@ -48,8 +44,8 @@ List<List<String>> mispells = [
   ['l', 'll'],
   ['m', 'mm'],
   ['n', 'nn'],
-  ['p', 'oo'],
-  ['q', 'pp'],
+  ['o', 'oo'],
+  ['p', 'pp'],
   ['q', 'qq'],
   ['r', 'rr'],
   ['s', 'ss'],
@@ -120,26 +116,26 @@ List<Function(String)> _generators = [
 ];
 
 String _prefixGenerator(String text) {
-  return _randomString(prefixes) + text;
+  return randomString(prefixes) + text;
 }
 
 String _postfixGenerator(String text) {
-  return text + _randomString(postfixes);
+  return text + randomString(postfixes);
 }
 
 String _mispellGenerator(String text) {
-  int index = _random.nextInt(text.length);
+  int index = randomInt(text.length);
   String char = text[index];
   List<List<String>> availableMispells =
       mispells.where((mispell) => mispell[0] == char).toList();
   List<String> choosenMispell =
-      availableMispells[_random.nextInt(availableMispells.length)];
+      availableMispells[randomInt(availableMispells.length)];
   return text.replaceRange(index, index + 1, choosenMispell[1]);
 }
 
 /// Return given text to a typical startup name.
 String generateName(String text) {
-  Function generator = _randomChoice(_generators);
+  Function generator = randomChoice(_generators);
   return generator(text);
 }
 
