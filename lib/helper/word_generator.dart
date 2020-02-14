@@ -1,6 +1,6 @@
 import 'random.dart';
 
-Map<String, List<String>> categoryMap = {
+Map<String, List<String>> _categoryMap = {
   'food' : [
     // Food
     'makan', 'lapar', 'kenyang', 'nyam', 'kunyah',
@@ -164,8 +164,8 @@ Map<String, List<String>> categoryMap = {
 
 String getWordByCategory(String categoryName) {  
   String lowerCaseCategoryName = categoryName.toLowerCase();
-  if (categoryMap.containsKey(lowerCaseCategoryName))
-    return randomString(categoryMap[lowerCaseCategoryName]);
+  if (_categoryMap.containsKey(lowerCaseCategoryName))
+    return randomString(_categoryMap[lowerCaseCategoryName]);
   else
-    throw Exception(categoryName + ' not found in categoryMap!');
+    throw Exception(categoryName + ' not found in _categoryMap!');
 }
