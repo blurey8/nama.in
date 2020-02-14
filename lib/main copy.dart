@@ -3,8 +3,6 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 import 'helper/name_generator.dart';
 import 'helper/word_generator.dart';
 import 'custom/custom_pagination.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'try_slider.dart';
 
 void main() => runApp(NamainApp());
 
@@ -13,7 +11,7 @@ class NamainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'nama.in',
+      title: 'nama.in' ,
       theme: ThemeData(
         primarySwatch: Colors.teal,
         scaffoldBackgroundColor: Colors.teal[50],
@@ -30,7 +28,6 @@ class NameGenerator extends StatefulWidget {
 
 class NameGeneratorState extends State<NameGenerator> {
   String startupName = 'Your Startup Name';
-  int _currentPage = 0;
   final nameController = TextEditingController();
 
   @override
@@ -56,6 +53,10 @@ class NameGeneratorState extends State<NameGenerator> {
       control: controller,
     );
   }
+
+  // Widget buildPagination(BuildContext context) {
+  //   // return new FlatButton(onPressed: controller., child: Icon(Icons.autorenew));
+  // }
 
   Widget buildStartupName() {
     return Padding(
@@ -128,7 +129,8 @@ class NameGeneratorState extends State<NameGenerator> {
   Widget buildCategoryTiles() {
     return GridView.count(
       crossAxisCount: 3,
-      childAspectRatio: 5 / 4,
+      childAspectRatio: 1,//5/4,
+      
       primary: false,
       crossAxisSpacing: 10,
       mainAxisSpacing: 10,
@@ -146,66 +148,6 @@ class NameGeneratorState extends State<NameGenerator> {
     );
   }
 
-  List<T> map<T>(List list, Function handler) {
-    List<T> result = [];
-    for (var i = 0; i < list.length; i++) {
-      result.add(handler(i, list[i]));
-    }
-
-    return result;
-  }
-
-  Widget buildInputSection() {
-    List<Widget> pages = [buildTextForm(), buildCategoryTiles()];
-    List<IconData> icons = [Icons.text_fields, Icons.view_module];
-    double vpRatio = 0.95;
-    double sidePadding = (1 - vpRatio) / 2 * MediaQuery.of(context).size.width;
-    final basicSlider = CarouselSlider(
-        height: double.infinity,
-        autoPlay: false,
-        enableInfiniteScroll: false,
-        viewportFraction: vpRatio,
-        onPageChanged: (index) {
-          setState(() => this._currentPage = index);
-        },
-        items: map(pages, (index, page) {
-          return Padding(
-            padding: index != pages.length - 1
-                // ? EdgeInsets.only(right: sidePadding)
-                // ? EdgeInsets.symmetric(horizontal: sidePadding)
-                ? EdgeInsets.fromLTRB(0, 0, sidePadding, 0)
-                : EdgeInsets.fromLTRB(0, 0, 0, 0),
-            child: Container(
-              // height: double.infinity,
-              // color: Colors.yellow,
-              child: page,
-            ),
-          );
-        }));
-    return Container(
-      // color: Colors.pink,
-      child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-        Expanded(child: basicSlider),
-        Container(
-          // color: Colors.blue,
-          child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: map(icons, (index, icon) {
-                return IconButton(
-                  color: _currentPage == index
-                      ? Theme.of(context).primaryColor
-                      : Theme.of(context).unselectedWidgetColor,
-                  onPressed: () => basicSlider.animateToPage(index,
-                      duration: Duration(milliseconds: 150),
-                      curve: Curves.linear),
-                  icon: Icon(icon),
-                );
-              })),
-        ),
-      ]),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -215,11 +157,15 @@ class NameGeneratorState extends State<NameGenerator> {
       ),
       body: Column(
         children: <Widget>[
-          Expanded(child: buildStartupName()),
-          // Expanded(child: carousel),
-          // buildCarousel(),
-          // buildButton(carousel),
-          Expanded(child: buildInputSection())
+          Expanded(
+            // flex: 4,
+            child: buildStartupName()
+          ),
+          Expanded(
+            // flex: 5,
+            child: buildSwiper(
+                children: <Widget>[buildTextForm(), buildCategoryTiles()]),
+          ),
         ],
       ),
     );

@@ -4,7 +4,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 
 import 'package:flutter_page_indicator/flutter_page_indicator.dart';
 
-class RectangleSwiperPaginationBuilder extends SwiperPlugin {
+class IconSwiperPaginationBuilder extends SwiperPlugin {
   ///color when current index,if set null , will be Theme.of(context).primaryColor
   final Color activeColor;
 
@@ -22,7 +22,7 @@ class RectangleSwiperPaginationBuilder extends SwiperPlugin {
 
   final Key key;
 
-  const RectangleSwiperPaginationBuilder(
+  const IconSwiperPaginationBuilder(
       {this.activeColor,
       this.color,
       this.key,
@@ -34,7 +34,7 @@ class RectangleSwiperPaginationBuilder extends SwiperPlugin {
   Widget build(BuildContext context, SwiperPluginConfig config) {
     if (config.itemCount > 20) {
       print(
-          "The itemCount is too big, we suggest use FractionPaginationBuilder instead of RectangleSwiperPaginationBuilder in this sitituation");
+          "The itemCount is too big, we suggest use FractionPaginationBuilder instead of IconSwiperPaginationBuilder in this sitituation");
     }
     Color activeColor = this.activeColor;
     Color color = this.color;
