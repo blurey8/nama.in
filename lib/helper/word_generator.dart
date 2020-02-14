@@ -54,36 +54,53 @@ Map<String, List<String>> categoryMap = {
 
   'finance' : [
     // noun
-    'uang', 'duit', 'dana', 'pitih', 'reksadana', 'emas', 'tabungan', 'simpanan', 'profit',
+    'uang', 'duit', 'dana', 'pitih', 'reksadana', 'emas',
+    'tabungan', 'simpanan', 'profit',
+
     // verb
-    'pinjam', 'kredit', 'kasbon', 'utang', 'bayar', 'investasi', 'nabung', 'simpan', 'gadai',
+    'pinjam', 'kredit', 'kasbon', 'utang', 'bayar',
+    'investasi', 'nabung', 'simpan', 'gadai',
+
     // adjective
-    'pemat', 'untung', 'kaya', 'tajir', 'sultan', 'miskin', 'bokek',
+    'hemat', 'untung', 'kaya', 'tajir', 'sultan',
+    'miskin', 'bokek',
+
     // place
     'bank', 'pegadaian', 'rentenir', 'bankir',
   ],
 
   'media' : [
     // noun
-    'berita', 'komedi', 'hiburan', 'film', 'sinema', 'musik', 'lagu', 'podcast', 'video', 'acara', 'layar',
+    'berita', 'komedi', 'hiburan', 'film', 'sinema',
+    'musik', 'lagu', 'podcast', 'video', 'acara', 'layar',
     'koran', 'kabar', 'tv', 'tayangan', 'channel',
     'kreasi', 'inovasi', 'karya',
 
     // verb
-    'baca', 'dengar', 'simak', 'pantau', 'tulis', 'cuit', 'bicara', 'ngobrol', 'tonton', 'tayang', 'mengudara', 'percaya', 'ketawa', 'ngakak', 'bahagia', 'pikir', 'nalar', 'logika',
+    'baca', 'dengar', 'simak', 'pantau', 'tulis', 'cuit',
+    'bicara', 'ngobrol', 'tonton', 'tayang', 'mengudara',
+    'ketawa', 'ngakak', 'bahagia', 'pikir', 'nalar', 'logika', 'percaya',
+
     // adjective
-    'terkini', 'hangat', 'viral', 'kreatif', 'inovatif', 'tren', 'lucu', 'bacot', 'bawel',
+    'terkini', 'hangat', 'viral', 'kreatif', 'inovatif', 'tren',
+    'lucu', 'bacot', 'bawel',
+
     // subject
-    'artis', 'selebritis', 'aktor', 'aktris', 'musisi', 'kreator', 'produser', 'sineas', 'penonton',
+    'artis', 'selebritis', 'aktor', 'aktris', 'musisi',
+    'kreator', 'produser', 'sineas', 'penonton',
   ],
 
   'social' : [
     // noun
     'donasi', 'zakat', 'amal',
+    
     // verb
-    'bantu', 'tolong', 'bagi', 'sumbang', 'gotongroyong', 'derma', 'sedekah',
+    'bantu', 'tolong', 'bagi', 'sumbang', 'gotongroyong',
+    'derma', 'sedekah',
+    
     // adjective
     'baik', 'dermawan', 'bisa',
+    
     // subject
     'donatur', 'donor',
   ],
@@ -91,39 +108,53 @@ Map<String, List<String>> categoryMap = {
   'health' : [
     // place
     'rumahsakit', 'puskesmas', 
+    
     // noun
     'stetoskop', 'suntik', 'obat', 'resep', 'jasputih',
+    
     // verb
     'berobat', 'konsul', 'konsultasi',
+    
     // adjective
     'sehat', 'sembuh', 'rawat',
+    
     // subject
-    'dokter', 'bidan', 'perawat', 'suster', 'bruder', 'spesialis',
+    'dokter', 'spesialis', 'bidan', 'perawat', 'suster', 'bruder',
   ],
 
   'education' : [
     // place
     'kelas', 'sekolah', 'kursus', 'les', 'akademi',
+    
     // noun
     'buku', 'pensil', 'pelatihan', 'skill',
+    
     // verb
     'belajar', 'mengajar', 'ajar', 'bimbing',
+    
     // adjective
-    'privat', 'pintar', 'cerdas', 'jenius', 'jago', 'ahli', 'mampu',
+    'privat', 'pintar', 'cerdas', 'jenius',
+    'jago', 'ahli', 'mampu',
+    
     // subject
-    'guru', 'pengajar', 'dosen', 'ustadz', 'pelajar', 'murid', 'siswa', 'mahasiswa', 'santri',
+    'guru', 'pengajar', 'dosen', 'ustadz', 'pelajar',
+    'murid', 'siswa', 'mahasiswa', 'santri',
   ],
 
   'travel' : [
     // place
     'jalan', 'aspal',
+    
     // noun
     'mobil', 'motor', 'travel', 'van', 'sepeda', 'ojek', 'taksi',
     'kemudi', 'roda', 'setir', 'helm',
+    
     // verb
     'bonceng', 'numpang', 'bareng', 'naik', 'pergi', 'berangkat',
+    
     // adjective
     'sampai', 'cepat', 'kilat',
+    
     // subject
     'kendara', 
     
